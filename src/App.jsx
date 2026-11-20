@@ -2,6 +2,7 @@
 import StudentCard from "./latihan/soal-1";
 import TaskItem from "./latihan/soal-2";
 import FormSiswa from "./latihan/soal-4";
+import ScoreCounter from "./latihan/soal-5";
 
 import DaftarSiswa from "./latihan/soal-3";
 
@@ -51,6 +52,8 @@ function App() {
       <div className="flex flex-col gap-3">
         <DaftarSiswa />
       </div>
+
+      <ScoreCounter />
     </div>
   );
 }
