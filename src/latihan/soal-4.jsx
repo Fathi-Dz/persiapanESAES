@@ -10,11 +10,20 @@ import { useState } from "react";
 */
 
 function FormSiswa() {
-  // Lengkapi state untuk form di sini
+  const [nama, setNama] = useState("");
+  const [kelas, setKelas] = useState("");
+  const [dataSiswa, setDataSiswa] = useState(null);
 
   function handleSubmit(e) {
     e.preventDefault();
-    // Lengkapi logika saat form disubmit di sini
+    
+   setDataSiswa({
+      nama: nama,
+      kelas: kelas
+    });
+
+    setNama("");
+    setKelas("");
   }
 
   return (
@@ -28,6 +37,8 @@ function FormSiswa() {
         <input
           type="text"
           placeholder="Masukkan nama siswa"
+          value={nama}
+          onChange={(e) => setNama(e.target.value)}
           className="w-full px-3 py-2 border border-gray-300 rounded-lg"
         />
       </div>
@@ -35,9 +46,11 @@ function FormSiswa() {
       <div>
         <label className="block text-sm font-medium text-gray-700 mb-1">Kelas</label>
         {/* Hubungkan input ini dengan state menggunakan value dan onChange */}
-        <input
+       <input
           type="text"
-          placeholder="Contoh: XI B"
+          placeholder="Masukkan kelass"
+          value={kelas}
+          onChange={(e) => setKelas(e.target.value)}
           className="w-full px-3 py-2 border border-gray-300 rounded-lg"
         />
       </div>
@@ -46,8 +59,16 @@ function FormSiswa() {
         Simpan Data
       </button>
 
-      {/* Tampilkan preview nilai input / hasil submit di sini */}
-      <p className="text-sm text-gray-500">Preview data akan muncul di sini</p>
+       {dataSiswa && (
+        <div className="p-3 bg-green-50 rounded-lg text-sm text-gray-700">
+          <h3 className="font-bold text-green-700 mb-2">
+            Data Berhasil Disimpan!
+          </h3>
+
+          <p>Nama: {dataSiswa.nama}</p>
+          <p>Kelas: {dataSiswa.kelas}</p>
+        </div>
+      )}
     </form>
   );
 }

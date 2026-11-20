@@ -12,12 +12,45 @@
 
 function DaftarSiswa() {
   const daftarSiswa = [
-    // Lengkapi minimal 3 data siswa di sini
+     {
+      id: 1,
+      nama: "fathi",
+      kelas: "XI RPL"
+    },
+    {
+      id: 2,
+      nama: "dzhaabi",
+      kelas: "XI TKJ"
+    },
+    {
+      id: 3,
+      nama: "beje",
+      kelas: "XI RPL"
+    }
   ];
 
   return (
     <>
-      {/* Render daftarSiswa menggunakan .map() dan pasang key={siswa.id} pada elemen terluar tiap item */}
+      <h1 className="text-2xl font-bold mb-4">
+        Daftar siswa
+      </h1>
+
+      <div className="space-y-3">
+         {daftarSiswa.map((siswa) => (
+          <section
+            key={siswa.id}
+            className="border border-gray-200 rounded-xl p-5 shadow-sm bg-white"
+          >
+            <h2 className="text-lg font-bold text-gray-800">
+              {siswa.nama}
+            </h2>
+
+            <p className="text-sm text-gray-500">
+              Kelas {siswa.kelas}
+            </p>
+          </section>
+        ))}
+      </div>
     </>
   );
 }
